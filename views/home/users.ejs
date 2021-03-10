@@ -1,0 +1,40 @@
+<%- include("../../partials/header/firstheader.ejs") %>
+<%- include("../../partials/header/navHeader.ejs") %>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mt-5">
+            <p class="display-4">All Users</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-3">
+            <div class="row">
+                <% var counter = 0; %>
+                <% if(!Usres.length == 0) { %>
+                    <% Usres.forEach((us) => { %>        
+                        <div class="col-3  p-1" >
+                            <div class="border p-2 my-2" style="border-radius: 15px;">
+                                <p class="fw-bold mb-2" style="font-size: 1.2em;">User <%= ++counter %></p>
+                            <p><span class="fw-bold mb-1">User Name: </span> <%= us.username %></p>
+                            <p><span class="fw-bold mb-1">Admin: </span> <%= us.isAdmin %></p>
+                                <a class="btn btn-danger btn-sm" href="/Users/<%= us._id %>">Delete</a>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <div class="col-12 text-center my-5">
+                        <p>Dosen't Have Any User.</p>
+                    </div>
+                <% } %>    
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,34 @@
+<%- include("../../partials/header/firstheader.ejs") %>
+<%- include("../../partials/header/navHeader.ejs") %>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mt-5">
+            <p class="display-4">Login Form</p>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="row justify-content-center mt-4">
+            <div class="col-5">
+                <form action="/login" method="POST">
+                    <div class="mb-3">
+                      <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
+                      <input type="text" name="username" class="form-control" id="exampleInputEmail1" placeholder="Username" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
+                      <input type="password" name="password" class="form-control" placeholder="Password" id="exampleInputPassword1">
+                    </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("../../partials/footer/footer.ejs") %>
+
+
+
+

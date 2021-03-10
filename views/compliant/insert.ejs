@@ -1,0 +1,59 @@
+<%- include("../../partials/header/firstheader.ejs") %>
+<%- include("../../partials/header/navHeader.ejs") %>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mt-5">
+            <p class="display-4">Insert New Compliant</p>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="row justify-content-center mt-4">
+            <div class="col-5">
+                <form action="/compliant/new" method="POST">
+                    <div class="mb-3">
+                      <input type="text" name="name_form" class="form-control" id="exampleInputEmail1" placeholder="Compliant Name" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <textarea type="text" name="problem_form" class="form-control"  rows="4" placeholder="Problem Description" id="exampleInputPassword1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-check-label mb-2 " for="exampleRadios1">
+                            Select The product you have experienced issues with :
+
+                          </label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="productExperice_form" id="s1" value="Online Payment">
+                            <label class="form-check-label" for="s1">
+                              Online Payment
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="productExperice_form" id="s2" value="Account Problem">
+                            <label class="form-check-label" for="s2">
+                              Account Problem
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="productExperice_form" id="s3" value="User Interface Problem">
+                            <label class="form-check-label" for="s3">
+                              User Interface Problem
+                            </label>
+                          </div>
+                    </div>
+                    <label class="form-check-label mt-3 mb-1 " for="exampleRadios1">
+                        For Feedback please rate our complaint user portal
+                    </label>
+                    <input type="range" class="w-100 mb-3" name="feeback_form" min="1" max="10" value="">
+                    
+                        <button type="submit" class="btn btn-primary w-100 mt-2">Insert</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("../../partials/footer/footer.ejs") %>
+
+

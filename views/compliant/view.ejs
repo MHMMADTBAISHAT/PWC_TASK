@@ -1,0 +1,73 @@
+<%- include("../../partials/header/firstheader.ejs") %>
+<%- include("../../partials/header/navHeader.ejs") %>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mt-5">
+            <p class="display-4">View All Compliant</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <a href="/compliant/new" class="btn btn-primary">Create New Compliant</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-3">
+            <div class="row">
+                <% var counter = 0; %>
+                <% var found = false; %>
+                <% if(!allCompliant.length == 0) { %>
+                    <% allCompliant.forEach((com) => { %>
+                        <% if(com.creatorUsername == currentUser.username || currentUser.isAdmin ) { %>
+                            <% found = true; %>
+                            <div class="col-3  p-1" >
+                                <div class="border p-2 my-2" style="border-radius: 15px;">
+                                    <p class="fw-bold mb-2" style="font-size: 1.2em;">Compliant <%= ++counter %></p>
+                                <p><span class="fw-bold mb-1">Create By: </span> <%= com.creatorUsername %></p>
+                                <p><span class="fw-bold mb-1">Name: </span> <%= com.name %></p>
+                                <p><span class="fw-bold mb-1">Description: </span> <%= com.problem %></p>
+                                <p><span class="fw-bold mb-1">Problem: </span> <%= com.productExperice %></p>
+                                <p><span class="fw-bold mb-1">Feedback: </span> <%= com.feeback %></p>
+                                <% if( com.status == "Approved") { %>
+                                    <p class="text-success"><span class="fw-bold mb-1" style="color: #212529;">Status: </span> <%= com.status %></p>
+                                <% } else if( com.status == "Dismissed") { %>
+                                    <p class="text-danger"><span class="fw-bold mb-1" style="color: #212529;">Status: </span> <%= com.status %></p>
+                                <% } else if( com.status == "Pending") { %>
+                                    <p class="text-warning"><span class="fw-bold mb-1" style="color: #212529;">Status: </span> <%= com.status %></p>
+                                <% } %>
+
+                                <% if(currentUser.isAdmin) { %>
+                                    <div class="buttons d-flex justify-content-around">
+                                        <a class="btn btn-success btn-sm" href="/compliant/<%= com._id %>/toApproved">Approved</a>
+                                        <a class="btn btn-danger btn-sm" href="/compliant/<%= com._id %>/toDismissed">Dismissed</a>
+                                    </div>
+                                <% } %>
+                                </div>
+                            </div>
+                        <% } else { %>
+                            
+                            
+                        <% } %>
+                    <% }); %>
+                <% } else { %>
+                    <div class="col-12 text-center my-5">
+                        <p>Dosen't Have Any Compliant.</p>
+                    </div>
+                    <% if(!found) { %>
+                        <div class="col-12 text-center my-5">
+                            <p>Hi, <%= currentUser.username %> You Dosen't Have Any Compliant.</p>
+                        </div>
+                    <% } %>
+                <% } %>    
+            </div>
+        </div>
+    </div>
+</div>
+
+

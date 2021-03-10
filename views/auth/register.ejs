@@ -1,0 +1,37 @@
+<%- include("../../partials/header/firstheader.ejs") %>
+<%- include("../../partials/header/navHeader.ejs") %>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mt-5">
+            <p class="display-4">Register Form</p>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="row justify-content-center mt-4">
+            <div class="col-5">
+                <form action="/register" method="POST">
+                    <div class="mb-3">
+                      <input type="text" name="username" class="form-control" id="exampleInputEmail1" placeholder="Username" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <input type="password" name="password" class="form-control" placeholder="Password" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" name="secret" class="form-control" placeholder="Secret Code" id="exampleInputPassword1">
+                      </div>
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("../../partials/footer/footer.ejs") %>
+
+
+
+
+
+
